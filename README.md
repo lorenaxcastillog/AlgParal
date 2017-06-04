@@ -1,1 +1,1 @@
-# AlgParal
+# Lab03Paralelos
