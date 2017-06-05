@@ -2,6 +2,8 @@
 #include <cuda.h>
 using namespace std;
 
+///usr/local/bin/nvcc suma-matrices.cu -o suma.out
+
 __global__ MatrizAddKernel_B(float *A, float* B, float* C, int n)
 {
   int i=threadIdx.x+blockDim.x*blockIdx.x;
