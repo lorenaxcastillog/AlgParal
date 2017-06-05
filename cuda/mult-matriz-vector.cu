@@ -5,12 +5,14 @@ using namespace std;
 __global__ void MultMatrizVectKernel(float *A, float *B, float *C, int n)
 {
   int i = n * blockIdx.x; 
+  float sum; 
   if(i < n*n)
   {
     for(int j = 0; j < n ; ++j)
     {
-      C[blockIdx.x] += A[i + j] * B[j];
+      sum += A[i + j] * B[j];
     }
+    C[blockIdx.x] += sum;
   }
 } 
 
