@@ -94,13 +94,13 @@ int main(int argc, char const *argv[])
 	
         auto finish = chrono::high_resolution_clock::now();
 	chrono::duration<double> elapsed = finish - start;
-	cout << "Time taken First Odd-Even: " << elapsed.count() <<endl; 
+	cout << "Tiempo Odd-Even: " << elapsed.count() <<endl; 
 	
         auto start2 = chrono::high_resolution_clock::now();
 	odd_even_(V,n,thread_count);
 	
         auto finish2 = chrono::high_resolution_clock::now();
 	chrono::duration<double> elapsed2 = finish2 - start2;
-	cout << "Time taken Second Odd-Even: " << elapsed2.count() <<endl; 
+	cout << "Tiempo Odd-Even_2: " << elapsed2.count() <<endl; 
 	return 0;
 }
