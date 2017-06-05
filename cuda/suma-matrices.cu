@@ -2,16 +2,6 @@
 #include <cuda.h>
 using namespace std;
 
-__global__ void MatrizAddKernel_A(float *A, float *B, float *C, int n)
-{
-  int i = threadIdx.x + blockDim.x * blockIdx.x; 
-  if(i < n*n)
-  {  
-    C[i] = A[i] + B[i];
-  }
-}
-
-
 __global__ MatrizAddKernel_B(float *A, float* B, float* C, int n)
 {
   int i=threadIdx.x+blockDim.x*blockIdx.x;
@@ -59,10 +49,9 @@ void MatrizAdd(float *A, float *B, float *C, int n)
   cudaMemcpy(d_A, A, size, cudaMemcpyHostToDevice);
   cudaMemcpy(d_B, B, size, cudaMemcpyHostToDevice);
 
-  //MatrizAddKernel_A<<< 5 , 2 >>>(d_A, d_B, d_C, n);
-  MatrizAddKernel_B<<< 1 , n*n >>>(d_A, d_B, d_C n);	
-  //MatrizAddKernel_C<<< n , n >>>(d_A, d_B, d_C, n);
-  //MatrizAddKernel_D<<< n , n >>>(d_A, d_B, d_C, n);
+  MatrizAddKernel_B<<< 5 , 2 >>>(d_A, d_B, d_C n);	
+  //MatrizAddKernel_C<<< n , 1 >>>(d_A, d_B, d_C, n);
+  //MatrizAddKernel_D<<< n , 1 >>>(d_A, d_B, d_C, n);
   
   cudaMemcpy(C, d_C, size, cudaMemcpyDeviceToHost);
 
