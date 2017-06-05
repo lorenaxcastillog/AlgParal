@@ -5,6 +5,9 @@
 #include <chrono> 
 using namespace std;
 
+///g++ -fopenmp -std=c++11 odd-even.cpp
+
+
 void odd_even(int *V, int n, int thread_count)
 {
   int fase,i,tmp;
