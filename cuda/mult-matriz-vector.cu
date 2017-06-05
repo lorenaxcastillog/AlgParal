@@ -2,6 +2,9 @@
 #include <cuda.h>
 using namespace std;
 
+///usr/local/bin/nvcc mult-matriz-vector.cu -o mult.out
+
+
 __global__ void MultMatrizVectKernel(float *A, float *B, float *C, int n)
 {
   int i = n * blockIdx.x; 
